@@ -1,0 +1,50 @@
+// .card-age {   
+//     .input-age {
+//         // border: black 1px solid;
+//         display: flex;
+//         height: 2em;
+//         div {
+//             width: 2em;
+//             text-align: center;
+//             line-height: 2em;
+//             background: #cacaca;
+//         }
+//     }
+//     .warning {
+//         color: rgb(253, 79, 79);
+//         background: #edd7d7;
+//     }
+// }
+
+.card {   
+    h3 {
+        color: gray;
+        font-weight: 400;
+    }
+    .input-price {
+        // border: black 1px solid;
+        display: flex;
+        height: 2rem;
+        .title-twd {
+            width: 2rem;
+            font-size: x-small;
+            background: #d5d5d5;
+            text-align: center;
+            line-height: 2rem;
+        }
+        input::placeholder {
+            color: gray;
+        }
+    }
+    .warning {
+        color: rgb(253, 79, 79);
+        background: #edd7d7;
+    }   
+}
+
+.price-setting-board {
+    font-family: serif;
+    .inputs {
+        display: flex;
+    }
+}
