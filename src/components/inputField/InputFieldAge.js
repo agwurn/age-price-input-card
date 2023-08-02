@@ -25,11 +25,12 @@ const InputFieldAge = (props) => {
 
     const checkOverlapped = () => {
       let overlapList = ageState.overlap
+      console.log('---',ageState)
       for(let o of overlapList)
       {
-        for(let i = localAgeInterval[0]; i <= localAgeInterval[1]; i ++){
+        for(let i = o[0]; i <= o[o.length - 1]; i ++){
           console.log(o[0], i, o[1])
-          if(o[0] <= i && i <= o[1]){
+          if(localAgeInterval[1] >= i && i >= localAgeInterval[0]){
             console.log('!!2')
             return true
           }
@@ -39,12 +40,12 @@ const InputFieldAge = (props) => {
     }
     
     useEffect(() => {
-      console.log('------',localAgeInterval)
+      // console.log('------',localAgeInterval)
       let tempErrorMsg = ""
       if (!checkAgeSelected(localAgeInterval)){
         tempErrorMsg = "不可以為空白"
       } else if(checkOverlapped()) {
-        console.log('!3')
+        // console.log('!3')
         tempErrorMsg = "年齡區間不可重疊"
       }
       setErrorMsg(tempErrorMsg)
@@ -67,13 +68,15 @@ const InputFieldAge = (props) => {
     <div className='w-full'>
         <Title>年齡</Title>
         <div className='h-8 flex border'>
-            <NumberSelect ageInterval={localAgeInterval} 
+            <NumberSelect id={"left"}
+                          localAgeInterval={localAgeInterval} 
                           handleSetAgeInterval={handleSetAgeIntervalLeft} 
                           errorMsg={errorMsg}
             />
             <div className='w-8 bg-gray-200 text-center leading-8 text-xs text-gray-500'>~</div>
             {/* <select/> */}
-            <NumberSelect ageInterval={localAgeInterval} 
+            <NumberSelect id={"right"}
+                          localAgeInterval={localAgeInterval} 
                           handleSetAgeInterval={handleSetAgeIntervalRight} 
                           errorMsg={errorMsg}
             />
