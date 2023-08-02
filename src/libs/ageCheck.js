@@ -5,7 +5,7 @@ output: { overlap: [[6, 8], [17]], notInclude: [[0, 4], [12, 13]] }
 */
 
 // const ageIntervals = [[6, 11], [5, 8], [17, 20], [7], [14,17]]
-const ageIntervals = [[2,7]]
+// const ageIntervals = [[2,7]]
 
 function getAgeState(ageIntervals) {
     let tempList = new Array(21).fill(0)
@@ -33,13 +33,13 @@ function getAgeState(ageIntervals) {
     for (let i in tempList) {
         if (tempList[i] !== tempList[l]) {
             if (tempList[l] === 0) {
-                if (i - 1 == l) {
+                if (Number(i - 1) === Number(l)) {
                     ans.notInclude.push([Number(l)])
                 } else {
                     ans.notInclude.push([Number(l), i - 1])
                 }
             } else if (tempList[l] === 2) {
-                if (i - 1 == l) {
+                if (Number(i - 1) === Number(l)) {
                     ans.overlap.push([Number(l)])
                 } else {
                     ans.overlap.push([Number(l), i - 1])
@@ -50,7 +50,7 @@ function getAgeState(ageIntervals) {
         }   
     }
 
-    if (l == tempList.length - 1) {
+    if (Number(l) === Number(tempList.length - 1)) {
         // console.log(tempList[l])
         if (tempList[l] === 0) {
             ans.notInclude.push([Number(l)])

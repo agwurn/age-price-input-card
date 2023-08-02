@@ -5,8 +5,7 @@ import ErrorMsg from './ErrorMsg'
 
 const InputFieldAge = (props) => {
 
-    const {id,
-           ageInterval, 
+    const {id, 
            handleSelectAge, 
            ageState } = props
 
@@ -28,9 +27,9 @@ const InputFieldAge = (props) => {
       let overlapList = ageState.overlap
       for(let o of overlapList)
       {
-        for(let i = localAgeInterval[0]; i <= localAgeInterval[localAgeInterval.length - 1]; i ++){
+        for(let i = localAgeInterval[0]; i <= localAgeInterval[1]; i ++){
           console.log(o[0], i, o[1])
-          if(o[0] >= i && i <= o[1]){
+          if(o[0] <= i && i <= o[1]){
             console.log('!!2')
             return true
           }
@@ -40,7 +39,7 @@ const InputFieldAge = (props) => {
     }
     
     useEffect(() => {
-  
+      console.log('------',localAgeInterval)
       let tempErrorMsg = ""
       if (!checkAgeSelected(localAgeInterval)){
         tempErrorMsg = "不可以為空白"

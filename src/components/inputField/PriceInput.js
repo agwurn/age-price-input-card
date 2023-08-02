@@ -4,9 +4,7 @@ import { addComma, removeComma } from '../../libs/addComma'
 const PriceInput = (props) => {
 
   const { errorMsg, handleSetErrorMsg } = props
-  // console.log(handleSetErrorMsg)
 
-  // const [ input, setInput ] = useState('')
   const [ input, setInput] = useState('')
 
   const handleInput = (e) => {
