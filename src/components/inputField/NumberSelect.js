@@ -2,7 +2,7 @@ import React from 'react'
 
 const NumberSelect = (props) => {
 
-    const { errorMsg, ageList, handleSetAgeList } = props
+    const { errorMsg, ageInterval, handleSetAgeInterval } = props
 
     const renderProps = () => {
 
@@ -14,7 +14,7 @@ const NumberSelect = (props) => {
         for (let i = 0; i <= 20; i++) {
 
             let disabled = false
-            if(ageList.indexOf(i) !== -1){
+            if(ageInterval.indexOf(i) !== -1){
                 disabled = true
             }
 
@@ -31,7 +31,7 @@ const NumberSelect = (props) => {
 
     const handleSelect = (e) => {
         const selected = Number(e.target.value)
-        handleSetAgeList(selected)
+        handleSetAgeInterval(selected)
     }
 
   return (
