@@ -5,9 +5,9 @@ import ErrorMsg from '../atoms/ErrorMsg'
 
 const InputFieldAge = (props) => {
 
-    const { handleSetCardAgeInterval, ageState } = props
+    const { num, handleSetCardAgeInterval, ageState } = props
 
-    const [ errorMsg, setErrorMsg ] = useState("")
+    const [ errorMsg, setErrorMsg ] = useState("不可以為空白")
     const [ leftSelect, setLeftSelect ] = useState("")
     const [ rightSelect, setRightSelect ] = useState("")
     const [ sortedSelect, setSortedSelect ] = useState(["",""])
@@ -31,17 +31,18 @@ const InputFieldAge = (props) => {
     
     useEffect(() => {
       if(ageState) {
-        console.log(checkOverlapped())
-        if(checkOverlapped()) {
+        if(checkOverlapped() ) {
           setErrorMsg("年齡區間不可重疊")
         } else {
           setErrorMsg("")
+          checkEmptyAndSetErrMsg()
         }
       }
     },[ageState])
 
     const checkEmptyAndSetErrMsg = () => {
       if(leftSelect === "" || rightSelect === "") {
+        // console
         setErrorMsg("不可以為空白")
         return false
       } else {
@@ -66,12 +67,13 @@ const InputFieldAge = (props) => {
 
     const checkOverlapped = () => {
       let overlapList = ageState.overlap
-      console.log('---',ageState)
-      for(let o of overlapList)
-      {
-        for(let i = o[0]; i <= o[o.length - 1]; i ++){
-          if(rightSelect >= i && i >= leftSelect){
-            return true
+      if(overlapList) {
+        for(let o of overlapList)
+        {
+          for(let i = o[0]; i <= o[o.length - 1]; i ++){
+            if(rightSelect >= i && i >= leftSelect){
+              return true
+            }
           }
         }
       }
@@ -94,7 +96,7 @@ const InputFieldAge = (props) => {
                           errorMsg={errorMsg}
             />
         </div>
-        <ErrorMsg>{errorMsg}</ErrorMsg>
+        <ErrorMsg num={num}>{errorMsg}</ErrorMsg>
     </div>
   )
 }

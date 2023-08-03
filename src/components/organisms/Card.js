@@ -7,8 +7,7 @@ import HorizonalLine from '../atoms/HorizonalLine'
 const Card = (props) => {
 
     let { id,
-          num,
-          ageInterval, 
+          num, 
           handleDeleteCard, 
           changeGlobalAgeInterval, 
           ageState } = props;
@@ -28,17 +27,17 @@ const Card = (props) => {
     }
 
   return (
-    <div className='p-4'>
+    <div className='p-4' data-testid={`card-${num}`}>
       <HorizonalLine num={num}/>
       <div className='flex items-center'>
         <div className='text-sm text-slate-700'>價格設定 - {num}</div>
         <DeleteCardBtn num={num} handleDelete={handleDelete}/>
       </div>
       <div className='flex gap-8 my-2'>
-          <InputFieldAge id={id} 
-                         ageInterval={ageInterval} 
+          <InputFieldAge num={num}
+                         ageState={ageState}
                          handleSetCardAgeInterval={handleSetCardAgeInterval}
-                         ageState={ageState}/>
+          />
           <InputFieldPrice/>
       </div>
     </div>

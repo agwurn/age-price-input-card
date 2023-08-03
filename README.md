@@ -9,7 +9,14 @@ Built with React.js, TailwindCSS, following the  Atomic Design pattern.
 ```
     npm install
 ```
-🚀 To start
+🚀 Launch 
 ```
     npm run start
 ```
+🧪 Test
+```
+    npm test
+```
+
+---
+@20230803 Agwurn Lu

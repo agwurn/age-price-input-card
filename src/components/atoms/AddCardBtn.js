@@ -11,14 +11,13 @@ const AddCardBtn = ({ageState, handleAddCard}) => {
   },[ageState])
 
   const checkAndAddCard = () => {
-    if (isAvail) {
       handleAddCard()
-    }
   }
 
   return (
-    <button className={`${isAvail?"text-teal-600":"text-gray-600"} text-xs m-4 transition`} 
+    <button className={`${isAvail?"text-teal-600":"text-gray-300"} text-xs m-4 transition`} 
         onClick={checkAndAddCard}
+        disabled={!isAvail}
     >+ 新增價格設定
     </button>
   )

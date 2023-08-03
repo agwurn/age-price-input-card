@@ -7,7 +7,7 @@ import { getAgeState } from '../../libs/ageCheck'
 const Desk = () => {
 
   const [ cards, setCards ] = useState([])
-  const [ ageState, setAgeState ] = useState("")
+  const [ ageState, setAgeState ] = useState({overlap:[], notInclude:[[0,20]]})
 
   const handleAddCard = () => {
     const newCard = {
