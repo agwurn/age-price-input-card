@@ -1,5 +1,5 @@
 import React from 'react'
-import Xmark from '../atoms/Xmark'
+import Xmark from './Xmark'
 
 const DeleteCardBtn = (props) => {
 

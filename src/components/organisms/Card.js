@@ -1,8 +1,8 @@
-import React from 'react'
-import InputFieldAge from '../inputField/InputFieldAge';
-import InputFieldPrice from '../inputField/InputFieldPrice';
-import DeleteCardBtn from '../inputField/DeleteCardBtn';
-import HorizonalLine from './HorizonalLine'
+import React, { useEffect, useState } from 'react'
+import InputFieldAge from '../molecules/InputFieldAge';
+import InputFieldPrice from '../molecules/InputFieldPrice';
+import DeleteCardBtn from '../atoms/DeleteCardBtn';
+import HorizonalLine from '../atoms/HorizonalLine'
 
 const Card = (props) => {
 
@@ -10,8 +10,18 @@ const Card = (props) => {
           num,
           ageInterval, 
           handleDeleteCard, 
-          handleSelectAge, 
+          changeGlobalAgeInterval, 
           ageState } = props;
+
+    const [ cardAgeInterval, setCardAgeInterval ] = useState()
+
+    const handleSetCardAgeInterval = (interval) => {
+      setCardAgeInterval(interval)
+    }
+
+    useEffect(() => {
+      changeGlobalAgeInterval(id, cardAgeInterval)
+    },[cardAgeInterval])
 
     const handleDelete = () => {
       handleDeleteCard(id)
@@ -27,7 +37,7 @@ const Card = (props) => {
       <div className='flex gap-8 my-2'>
           <InputFieldAge id={id} 
                          ageInterval={ageInterval} 
-                         handleSelectAge={handleSelectAge}
+                         handleSetCardAgeInterval={handleSetCardAgeInterval}
                          ageState={ageState}/>
           <InputFieldPrice/>
       </div>

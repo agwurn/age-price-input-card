@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Title = ({children}) => {
+const InputTitle = ({children}) => {
   return (
     <div className='text-gray-400 text-xs my-1'>
         {children}
@@ -8,4 +8,4 @@ const Title = ({children}) => {
   )
 }
 
-export default Title
+export default InputTitle

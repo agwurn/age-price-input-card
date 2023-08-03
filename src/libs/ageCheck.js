@@ -1,5 +1,4 @@
 /*
-請根據輸入的數字區間找出數字 0 到 20 間重疊與未包含的數字區間
 input : [[6, 11], [5, 8], [17, 20], [7], [14,17]]
 output: { overlap: [[6, 8], [17]], notInclude: [[0, 4], [12, 13]] }
 */
@@ -14,7 +13,6 @@ function getAgeState(ageIntervals) {
             if (tempList[interval[0]] <= 1) {
                 tempList[interval[0]] += 1
             }
-            
         } else {
             for (let i = interval[0]; i <= interval[1]; i ++) {
                 if (tempList[i] <= 1) {
@@ -22,9 +20,7 @@ function getAgeState(ageIntervals) {
                 }
             }
         }
-
     }
-    
     let l = 0
     let ans = {
         overlap: [],
@@ -45,13 +41,10 @@ function getAgeState(ageIntervals) {
                     ans.overlap.push([Number(l), i - 1])
                 }
             }
-            l = i
-            
+            l = i       
         }   
     }
-
     if (Number(l) === Number(tempList.length - 1)) {
-        // console.log(tempList[l])
         if (tempList[l] === 0) {
             ans.notInclude.push([Number(l)])
         } else if (tempList[l] === 2) {
@@ -64,7 +57,6 @@ function getAgeState(ageIntervals) {
             ans.overlap.push([Number(l), tempList.length - 1])
         }
     }
- 
     return ans
 }
 
